@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -107.6, "left": 96, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 9.9, "left": 167.4, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -54.4,
+      "left": -191.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr2",
+      "top": 166.2,
+      "left": 142,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 40.8,
+      "left": -142.2,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h76.8", "v19.2" ] ],
+    [ "ldr2:VCC", "esp:3V3", "red", [ "h0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "servo1:V+", "esp:3V3", "red", [ "h-9.6", "v48.1", "h38.4", "v153.6" ] ],
+    [ "ldr2:GND", "esp:GND.1", "black", [ "h-28.8", "v-57.2" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h86.4", "v-0.4" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-19.2", "v201.6" ] ],
+    [ "ldr1:AO", "esp:D32", "green", [ "h0" ] ],
+    [ "ldr2:AO", "esp:D33", "green", [ "h-115.2", "v-104.9" ] ],
+    [ "esp:D12", "bz1:2", "green", [ "h-110.6", "v4" ] ],
+    [ "bz1:1", "esp:GND.2", "black", [ "v0" ] ],
+    [ "esp:D15", "dht1:SDA", "green", [ "h0" ] ],
+    [ "esp:D18", "servo1:PWM", "green", [ "h33.1", "v-100.9", "h-38.4" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,8 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+PubSubClient
+Arduino Uno WiFi Dev Ed Library
+NTPClient
+DHT sensor library for ESPx
+ESP32Servo
